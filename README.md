@@ -28,13 +28,13 @@
 
 1. 初始化```XYSideViewController```作为```window.rootViewController```
  
-```
-XYSideViewController *rootViewController = [[XYSideViewController alloc] initWithSideVC:leftViewController currentVC:tabBarViewController];
-self.window.rootViewController = rootViewController;
-```
-
+	```
+	XYSideViewController *rootViewController = [[XYSideViewController 	alloc] initWithSideVC:leftViewController 	currentVC:tabBarViewController];
+	self.window.rootViewController = rootViewController;
+	```
+	
 	- SideVC :  左侧控制器
-  
+	 
 	- currentVC : 主控制器
  
 2. 侧拉栏属性
@@ -44,8 +44,8 @@ self.window.rootViewController = rootViewController;
   		- 可侧拉最大偏移量  
   		
   		- 默认值:  3/4 * 屏幕宽
-   - currentVCPanEnableRange 
-
+   - currentVCPanEnableRange
+     
   		 - pan侧拉手势范围  
  	  
   		 - 默认值: 50
