@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYSideViewController"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A Side ViewController container like the QQ app
 仿QQ侧滑菜单 "
 

@@ -17,6 +17,14 @@
  */
 - (instancetype)initWithSideVC:(UIViewController *)sideMenuVC currentVC:(UIViewController *)currentMainVC;
 /**
+    侧拉菜单VC
+ */
+@property (nonatomic, strong) UIViewController *sideVC;
+/**
+    主VC
+ */
+@property (nonatomic, strong) UIViewController *currentVC;
+/**
     侧拉偏移量
     默认 3/4 * 屏幕宽
  */

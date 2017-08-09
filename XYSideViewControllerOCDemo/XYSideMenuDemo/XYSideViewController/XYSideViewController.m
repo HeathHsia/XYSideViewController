@@ -13,8 +13,6 @@
     CGFloat XYScreenWidth; // 屏幕宽度
     CGFloat XYSccreenHeight; // 屏幕高度
     CGPoint viewStartCenterPoint; // self.view.center
-    UIViewController *currentVC; // 主VC
-    UIViewController *sideVC; // 侧拉VC
     UIView *tapView; // Tap手势View
     CGPoint beginPoint; // 主VC初始center
     CGPoint beginSidePoint; // 侧拉VC初始center
@@ -25,18 +23,23 @@
 
 - (instancetype)initWithSideVC:(UIViewController *)sideMenuVC currentVC:(UIViewController *)currentMainVC
 {
+    UIViewController *rootVC = [UIApplication sharedApplication].delegate.window.rootViewController;
+    if (rootVC && [rootVC isKindOfClass:[self class]]) {
+        return (XYSideViewController *)[UIApplication sharedApplication].delegate.window.rootViewController;
+    }
+    
     if (self = [super init]) {
         XYScreenWidth = [UIScreen mainScreen].bounds.size.width;
         XYSccreenHeight = [UIScreen mainScreen].bounds.size.height;
         viewStartCenterPoint = self.view.center;
-        currentVC = currentMainVC;
-        sideVC = sideMenuVC;
+        _currentVC = currentMainVC;
+        _sideVC = sideMenuVC;
         _sideContentOffset = XYScreenWidth * 3 / 4;
         _currentVCPanEnableRange = 100;
         _isSide = YES;
         beginPoint = self.view.center;
         CGPoint point = self.view.center;
-        point.x = point.x - _sideContentOffset;
+        point.x = point.x - _sideContentOffset / 2;
         beginSidePoint = point;
         [self setUpViewControllers];
     }
@@ -50,14 +53,16 @@
 
 - (void)setUpViewControllers
 {
-    [self addChildViewController:sideVC];
-    sideVC.view.frame = CGRectMake(-(_sideContentOffset / 2), 0, XYScreenWidth, XYSccreenHeight);
-    [self.view addSubview:sideVC.view];
-    currentVC.view.frame = CGRectMake(0, 0, XYScreenWidth, XYSccreenHeight);
-    [currentVC.view addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [self addChildViewController:_sideVC];
+    _sideVC.view.center = CGPointMake(self.view.center.x - (_sideContentOffset / 2), self.view.center.y);
+    _sideVC.view.bounds = CGRectMake(0, 0, XYScreenWidth, XYSccreenHeight);
+    
+    [self.view addSubview:_sideVC.view];
+    _currentVC.view.frame = CGRectMake(0, 0, XYScreenWidth, XYSccreenHeight);
+    [_currentVC.view addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGesture:)];
-    [currentVC.view addGestureRecognizer:panGestureRecognizer];
+    [_currentVC.view addGestureRecognizer:panGestureRecognizer];
     panGestureRecognizer.delegate = self;
     
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesure:)];
@@ -65,8 +70,8 @@
     tapView.frame = CGRectMake(0, 0, XYScreenWidth - _sideContentOffset, XYSccreenHeight);
     [tapView addGestureRecognizer:tapGesture];
     tapView.hidden = YES;
-    [currentVC.view addSubview:tapView];
-    [self.view addSubview:currentVC.view];
+    [_currentVC.view addSubview:tapView];
+    [self.view addSubview:_currentVC.view];
 }
 
 #pragma mark -- tap 手势, 关闭侧拉栏
@@ -80,9 +85,9 @@
     if (![self isPushViewController] || !_isSide) {
         return ;
     }
-    CGPoint point =  [pan velocityInView:currentVC.view];
-    CGPoint movePoint = [pan translationInView:currentVC.view];
-    CGPoint tabBarCenterPoint = currentVC.view.center;
+    CGPoint point =  [pan velocityInView:_currentVC.view];
+    CGPoint movePoint = [pan translationInView:_currentVC.view];
+    CGPoint tabBarCenterPoint = _currentVC.view.center;
     if (pan.state == UIGestureRecognizerStateChanged) {
         // 手势滑动时相对改变侧拉VC和主VC的center
         CGPoint tabBarVCCenter = beginPoint;
@@ -90,18 +95,18 @@
         tabBarVCCenter.x = beginPoint.x + movePoint.x;
         sideVCCenter.x = beginSidePoint.x + ((movePoint.x * (_sideContentOffset / 2)) / _sideContentOffset);
         if (tabBarVCCenter.x >= viewStartCenterPoint.x  && (viewStartCenterPoint.x + _sideContentOffset) >= tabBarVCCenter.x) {
-            currentVC.view.center = tabBarVCCenter;
-            sideVC.view.center = sideVCCenter;
+            _currentVC.view.center = tabBarVCCenter;
+            _sideVC.view.center = sideVCCenter;
         }else if (viewStartCenterPoint.x > tabBarVCCenter.x){
-            currentVC.view.center = self.view.center;
+            _currentVC.view.center = self.view.center;
             CGPoint point = self.view.center;
             point.x = point.x - (_sideContentOffset / 2);
-            sideVC.view.center = point;
+            _sideVC.view.center = point;
         }else if (tabBarVCCenter.x > (viewStartCenterPoint.x + _sideContentOffset)) {
             CGPoint point = self.view.center;
             point.x = viewStartCenterPoint.x + _sideContentOffset;
-            currentVC.view.center = point;
-            sideVC.view.center = self.view.center;
+            _currentVC.view.center = point;
+            _sideVC.view.center = self.view.center;
         }
         
     }else if (pan.state == UIGestureRecognizerStateEnded) {
@@ -128,13 +133,13 @@
 - (void)closeSideVC
 {
     [UIView animateWithDuration:0.2 animations:^{
-        currentVC.view.center = self.view.center;
+        _currentVC.view.center = self.view.center;
         CGPoint point = self.view.center;
         point.x = point.x - (_sideContentOffset / 2);
-        sideVC.view.center = point;
+        _sideVC.view.center = point;
     }completion:^(BOOL finished) {
-        beginPoint = currentVC.view.center;
-        beginSidePoint = sideVC.view.center;
+        beginPoint = _currentVC.view.center;
+        beginSidePoint = _sideVC.view.center;
     }];
 }
 
@@ -144,20 +149,20 @@
     [UIView animateWithDuration:0.2 animations:^{
         CGPoint point = self.view.center;
         point.x = viewStartCenterPoint.x + _sideContentOffset;
-        currentVC.view.center = point;
-        sideVC.view.center = self.view.center;
+        _currentVC.view.center = point;
+        _sideVC.view.center = self.view.center;
     }completion:^(BOOL finished) {
-        beginPoint = currentVC.view.center;
-        beginSidePoint = sideVC.view.center;
+        beginPoint = _currentVC.view.center;
+        beginSidePoint = _sideVC.view.center;
     }];
 }
 
 #pragma mark ---- 手势代理方法
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    CGPoint beginPointInView = [touch locationInView:currentVC.view];
+    CGPoint beginPointInView = [touch locationInView:_currentVC.view];
     // 控制pan手势范围
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ((XYSccreenHeight - currentVC.tabBarController.tabBar.frame.size.height) >= beginPointInView.y)) {
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ((XYSccreenHeight - _currentVC.tabBarController.tabBar.frame.size.height) >= beginPointInView.y)) {
         if (beginPointInView.x < _currentVCPanEnableRange) {
             return [self isPushViewController];
         }else {
@@ -171,13 +176,13 @@
 - (BOOL)isPushViewController
 {
     NSArray *viewControllers = [[NSArray alloc] init];
-    if ([currentVC isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tabBarVC = (UITabBarController *)currentVC;
+    if ([_currentVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarVC = (UITabBarController *)_currentVC;
         NSArray *navVCs = tabBarVC.viewControllers;
         UINavigationController *naVC = [navVCs objectAtIndex:tabBarVC.selectedIndex];
         viewControllers = naVC.viewControllers;
-    }else if ([currentVC isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *navVC = (UINavigationController *)currentVC;
+    }else if ([_currentVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navVC = (UINavigationController *)_currentVC;
         viewControllers = navVC.viewControllers;
     }
     if (viewControllers.count == 1) {
@@ -206,11 +211,11 @@
 - (UINavigationController *)currentNavController
 {
     UINavigationController *currentNavVC = [[UINavigationController alloc] init];
-    if ([currentVC isKindOfClass:[UINavigationController class]]) {
-        UINavigationController *navVC = (UINavigationController *)currentVC;
+    if ([_currentVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navVC = (UINavigationController *)_currentVC;
         currentNavVC = navVC;
-    }else if ([currentVC isKindOfClass:[UITabBarController class]]) {
-        UITabBarController *tabBarVC = (UITabBarController *)currentVC;
+    }else if ([_currentVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarVC = (UITabBarController *)_currentVC;
         currentNavVC = tabBarVC.childViewControllers[tabBarVC.selectedIndex];
     }
     return currentNavVC;
@@ -220,8 +225,8 @@
 - (void)setSideContentOffset:(CGFloat)sideContentOffset
 {
     _sideContentOffset = sideContentOffset;
-    sideVC.view.frame = CGRectMake(- _sideContentOffset / 2, 0, XYScreenWidth, XYSccreenHeight);
-    currentVC.view.frame = CGRectMake(0, 0, XYScreenWidth, XYSccreenHeight);
+    _sideVC.view.frame = CGRectMake(- _sideContentOffset / 2, 0, XYScreenWidth, XYSccreenHeight);
+    _currentVC.view.frame = CGRectMake(0, 0, XYScreenWidth, XYSccreenHeight);
     tapView.frame = CGRectMake(0, 0, (XYScreenWidth - _sideContentOffset), XYSccreenHeight);
 }
 
