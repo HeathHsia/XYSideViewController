@@ -50,7 +50,6 @@
 
 - (void)setUpViewControllers
 {
-    // 可以手动添加VC 到naVC的控制器的栈当中去, 这样就可以用push过去
     [self addChildViewController:sideVC];
     sideVC.view.frame = CGRectMake(-(_sideContentOffset / 2), 0, XYScreenWidth, XYSccreenHeight);
     [self.view addSubview:sideVC.view];

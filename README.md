@@ -3,7 +3,7 @@
 [![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com/documentation/)
 ![version](http://img.shields.io/badge/version-1.0.1-00FFFF.svg?style=flat)
-[![blog](http://img.shields.io/badge/blog-firehsia-FF00FF.svg?style=flat)](http://firehsia.com)
+[![blog](http://img.shields.io/badge/jianshu-简书-FF00FF.svg?style=flat)](http://www.jianshu.com/u/eec143f2560d)
 [![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat)](http://mit-license.org)
 
 ## XYSideViewController
@@ -29,7 +29,7 @@
 1. 初始化```XYSideViewController```作为```window.rootViewController```
  
 	```
-	XYSideViewController *rootViewController = [[XYSideViewController 	alloc] initWithSideVC:leftViewController 	currentVC:tabBarViewController];
+	XYSideViewController *rootViewController = [[XYSideViewController alloc] initWithSideVC:leftViewController currentVC:tabBarViewController];
 	self.window.rootViewController = rootViewController;
 	```
 	
