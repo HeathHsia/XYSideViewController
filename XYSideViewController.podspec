@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYSideViewController"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A Side ViewController container like the QQ app
 仿QQ侧滑菜单 "
 
@@ -41,7 +41,7 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT"
+  # s.license      = "MIT"
   s.license      = { :type => "MIT", :file => "LICENSE" }
 
 
@@ -132,7 +132,7 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"

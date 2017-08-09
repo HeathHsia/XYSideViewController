@@ -22,7 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // 侧拉VC
-    SideViewController *sideViewController = [[SideViewController alloc] init];
+    SideViewController *leftViewController = [[SideViewController alloc] init];
     
     // 主VC
     UITabBarController *tabBarViewController = [[UITabBarController alloc] init];
@@ -35,7 +35,7 @@
     tabBarViewController.viewControllers = @[navOne, navTwo];
     
     // 初始化XYSideViewController 设置为window.rootViewController
-    XYSideViewController *rootViewController = [[XYSideViewController alloc] initWithSideVC:sideViewController currentVC:tabBarViewController];
+    XYSideViewController *rootViewController = [[XYSideViewController alloc] initWithSideVC:leftViewController currentVC:tabBarViewController];
     self.window.rootViewController = rootViewController;
 
     return YES;

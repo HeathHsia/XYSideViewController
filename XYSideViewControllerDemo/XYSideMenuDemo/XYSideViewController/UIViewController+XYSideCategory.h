@@ -16,7 +16,7 @@
  */
 @property (nonatomic, strong, readonly)XYSideViewController *sideViewController;
 /**
-    侧拉VC push操作
+    左侧VC push操作
  */
 - (void)XYSidePushViewController:(UIViewController *)viewController animated:(BOOL)animated;
 /**
