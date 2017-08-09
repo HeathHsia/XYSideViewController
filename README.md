@@ -16,7 +16,8 @@
  
  > pod 'XYSideViewController', '~> 1.0.1'
  
-##OC版本
+ 
+## OC版本
 
 1. 初始化```XYSideViewController```作为```window.rootViewController```
  
@@ -44,6 +45,7 @@ self.window.rootViewController = rootViewController;
   左侧控制器push
   > - ```- (void)XYSideOpenVC``` 打开侧拉栏
   
-##Swift版本
+  
+## Swift版本
 
 稍后补上
