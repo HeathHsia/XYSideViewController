@@ -46,9 +46,9 @@
   		- 默认值:  3/4 * 屏幕宽
    - currentVCPanEnableRange
      
-  		 - pan侧拉手势范围  
+  		- pan侧拉手势范围  
  	  
-  		 - 默认值: 50
+  		- 默认值: 50
    - isSide 
     
    		- 侧拉开关
