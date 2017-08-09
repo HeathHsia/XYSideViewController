@@ -1,5 +1,13 @@
-# XYSideViewController
+![XYSideViewController](icon.png)
 
+[![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat
+)](https://developer.apple.com/iphone/index.action)
+[![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com)
+[![version](http://img.shields.io/badge/version-1.0.1-00FFFF.svg?style=flat)]()
+[![blog](http://img.shields.io/badge/blog-firehsia-FF00FF.svg?style=flat)](http://firehsia.com)
+[![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat)](http://mit-license.org)
+
+## XYSideViewController
 一个侧拉菜单控制器(仿QQ侧拉栏)
 
 **Email : firehsia1204@gmail.com**
@@ -48,4 +56,4 @@ self.window.rootViewController = rootViewController;
   
 ## Swift版本
 
-稍后补上
+###***Loading***
