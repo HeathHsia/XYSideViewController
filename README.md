@@ -7,17 +7,25 @@
 ![demoGif](demoGif.gif)
 
 ## Installation
+
 ###1. 直接将XYSideViewController文件夹放入到工程即可使用
+
 ###2. cocopods
  
  > pod 'XYSideViewController', '~> 1.0.1'
  
 ## 使用
 1. 初始化```XYSideViewController```作为```window.rootViewController```
+ 
 ```
 XYSideViewController *rootViewController = [[XYSideViewController alloc] initWithSideVC:leftViewController currentVC:tabBarViewController];
+self.window.rootViewController = rootViewController;
 ```
 
+> SideVC :  左侧控制器
+>  
+> currentVC : 主控制器
+ 
 2. 侧拉栏属性
  
   > - sideContentOffset 可侧拉最大偏移量 默认3/4 * 屏幕宽
