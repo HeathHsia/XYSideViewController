@@ -1,20 +1,22 @@
 # XYSideViewController
----
+
 一个侧拉菜单控制器(仿QQ侧拉栏)
 
-####效果图
+**Email : firehsia1204@gmail.com**
+
+**欢迎邮件 欢迎Star** 
 
 ![demoGif](demoGif.gif)
 
 ## Installation
 
-###1. 直接将XYSideViewController文件夹放入到工程即可使用
+1. 直接将XYSideViewController文件夹放入到工程即可使用
 
-###2. cocopods
+2. cocopods
  
  > pod 'XYSideViewController', '~> 1.0.1'
  
-## 使用
+##OC版本
 1. 初始化```XYSideViewController```作为```window.rootViewController```
  
 ```
@@ -40,3 +42,6 @@ self.window.rootViewController = rootViewController;
   > - ```- (void)XYSidePushViewController:(UIViewController *)viewController animated:(BOOL)animated``` 
   左侧控制器push
   > - ```- (void)XYSideOpenVC``` 打开侧拉栏
+  
+##Swift版本
+稍后补上
