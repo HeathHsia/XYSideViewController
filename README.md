@@ -21,7 +21,7 @@
 
 2. cocopods
  
- > pod 'XYSideViewController', '~> 1.0.1'
+ > pod 'XYSideViewController', '~> 1.0.2'
  
  
 ## OC版本
