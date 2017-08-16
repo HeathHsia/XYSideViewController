@@ -31,6 +31,7 @@
 		E28BF4921F3D901600B666AB /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4811F3D901600B666AB /* image.jpeg */; };
 		E28BF4931F3D901600B666AB /* shan.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4821F3D901600B666AB /* shan.png */; };
 		E28BF4941F3D901600B666AB /* yewan.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4831F3D901600B666AB /* yewan.png */; };
+		E2E1DB421F445CA600F28B67 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E1DB411F445CA600F28B67 /* OtherViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		E28BF4811F3D901600B666AB /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpeg; sourceTree = "<group>"; };
 		E28BF4821F3D901600B666AB /* shan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shan.png; sourceTree = "<group>"; };
 		E28BF4831F3D901600B666AB /* yewan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yewan.png; sourceTree = "<group>"; };
+		E2E1DB411F445CA600F28B67 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				E28BF4721F3D901600B666AB /* resource */,
 				E28BF4441F3D8FDB00B666AB /* AppDelegate.swift */,
 				E28BF4461F3D8FDB00B666AB /* ViewController.swift */,
+				E2E1DB411F445CA600F28B67 /* OtherViewController.swift */,
 				E28BF4481F3D8FDB00B666AB /* Main.storyboard */,
 				E28BF44B1F3D8FDB00B666AB /* Assets.xcassets */,
 				E28BF44D1F3D8FDB00B666AB /* LaunchScreen.storyboard */,
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E28BF4471F3D8FDB00B666AB /* ViewController.swift in Sources */,
+				E2E1DB421F445CA600F28B67 /* OtherViewController.swift in Sources */,
 				E28BF4451F3D8FDB00B666AB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -583,6 +587,7 @@
 				E28BF46B1F3D8FDB00B666AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E28BF46C1F3D8FDB00B666AB /* Build configuration list for PBXNativeTarget "XYSideViewControllerSwiftDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -591,6 +596,7 @@
 				E28BF46E1F3D8FDB00B666AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E28BF46F1F3D8FDB00B666AB /* Build configuration list for PBXNativeTarget "XYSideViewControllerSwiftDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -599,6 +605,7 @@
 				E28BF4711F3D8FDB00B666AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

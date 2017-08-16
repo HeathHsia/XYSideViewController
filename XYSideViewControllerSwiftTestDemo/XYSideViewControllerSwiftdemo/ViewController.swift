@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         view.addSubview(rootTableView)
     }
     
+    // MARK lazyLoadView
     lazy var rootTableView : UITableView = { [unowned self] in
         var tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
@@ -25,12 +26,10 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: ROOTTABLEVIEWCELLIDENTIFIER)
         return tableView
     }()
-    
     lazy var titleArray : [String] = { [unowned self] in
         var array = ["夜晚", "山脉", "龙卷风", "农场", "富士山", "海底"]
         return array
     }()
-
     let imageArray : [String] = {
         let array = ["yewan", "shan", "feng", "chang", "fushi", "haidi"]
         return array
@@ -43,20 +42,25 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.titleArray.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ViewController.ROOTTABLEVIEWCELLIDENTIFIER, for: indexPath)
         cell.textLabel?.text = self.titleArray[indexPath.row]
         cell.imageView?.image = UIImage(named: self.imageArray[indexPath.row])
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.01
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let otherVC = OtherViewController()
+        otherVC.title = titleArray[indexPath.row]
+        self.navigationController?.pushViewController(otherVC, animated: true)
+        
     }
     
     
