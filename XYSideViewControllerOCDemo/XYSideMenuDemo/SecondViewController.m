@@ -24,17 +24,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"风景";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     _imageArray = @[@"yewan", @"shan", @"feng", @"chang", @"fushi", @"haidi"];
     _titleArray = @[@"夜晚", @"山脉", @"龙卷风", @"农场", @"富士山", @"海底"];
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:@"Me" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.bounds = CGRectMake(0, 0, 40, 40);
-    [button addTarget:self action:@selector(aboutMe) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.leftBarButtonItem = barItem;
-    [self.view addSubview:self.rootTableView];
+    
+    [self setUpCustomViews];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -43,11 +40,26 @@
     [self.tabBarController.tabBar setHidden:NO];
 }
 
+- (void)setUpCustomViews
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Me" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    button.bounds = CGRectMake(0, 0, 40, 40);
+    [button addTarget:self action:@selector(aboutMe) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = barItem;
+    
+    [self.view addSubview:self.rootTableView];
+}
+
 - (void)aboutMe
 {
     [self XYSideOpenVC];
 }
 
+
+#pragma mark -- TableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _titleArray.count;
@@ -77,6 +89,7 @@
     return 100;
 }
 
+#pragma mark lazyLoad View
 -(UITableView *)rootTableView
 {
     if (!_rootTableView) {

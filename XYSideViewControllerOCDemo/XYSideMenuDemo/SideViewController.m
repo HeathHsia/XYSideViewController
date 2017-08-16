@@ -24,16 +24,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    UIImageView *imageV = [[UIImageView alloc] init];
-    imageV.image = [UIImage imageNamed:@"image.jpeg"];
+    
     _imageArray = @[@"02", @"04", @"07", @"05"];
     _titleArray = @[@"骑行", @"旅游", @"摄影", @"Steam"];
+    
+    [self setUpCustomViews];
+}
+
+- (void)setUpCustomViews
+{
+    UIImageView *imageV = [[UIImageView alloc] init];
+    imageV.image = [UIImage imageNamed:@"image.jpeg"];
     imageV.frame = self.view.bounds;
-    [self.view addSubview:imageV];
     imageV.alpha = 0.85;
+    [self.view addSubview:imageV];
     [self.view addSubview:self.rootTableView];
 }
 
+#pragma mark --- tableView Delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _titleArray.count;

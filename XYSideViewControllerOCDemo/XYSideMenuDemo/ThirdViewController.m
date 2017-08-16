@@ -22,11 +22,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"地球";
+    
     _imageArray = @[@"01", @"06", @"10", @"11", @"13"];
     _titleArray = @[@"地图", @"森林", @"赛场", @"游水", @"山间"];
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.rootTableView];
+    
+    [self setUpCustomViews];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -34,6 +36,13 @@
     [super viewWillAppear:animated];
     [self.tabBarController.tabBar setHidden:NO];
 }
+
+- (void)setUpCustomViews
+{
+    [self.view addSubview:self.rootTableView];
+}
+
+#pragma mark --- tableView Delegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -63,6 +72,8 @@
 {
     return 100;
 }
+
+#pragma mark lazyLoadView
 -(UITableView *)rootTableView
 {
     if (!_rootTableView) {
