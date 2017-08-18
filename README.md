@@ -2,7 +2,7 @@
 
 [![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com/documentation/)
-![version](http://img.shields.io/badge/version-1.0.3-00FFFF.svg?style=flat)
+![version](http://img.shields.io/badge/version-1.0.2-00FFFF.svg?style=flat)
 [![blog](http://img.shields.io/badge/jianshu-简书-FF00FF.svg?style=flat)](http://www.jianshu.com/u/eec143f2560d)
 [![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat)](http://mit-license.org)
 
@@ -21,13 +21,13 @@
  
 		直接将XYSideViewControllerOC文件夹放入到工程即可使用
 	
-	Swift版本将
+	Swift版本
 	
 		直接将XYSideViewControllerSwift文件夹放入到工程即可使用
 
 2. cocopods
  
- > pod 'XYSideViewController', '~> 1.0.3'
+ > pod 'XYSideViewController', '~> 1.0.2'
  
  
 ## OC版本
