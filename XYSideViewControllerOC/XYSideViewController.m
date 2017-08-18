@@ -132,11 +132,9 @@
 #pragma mark ---- 关闭侧拉栏
 - (void)closeSideVC
 {
-
-    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
-        _currentVC.view.center = weakSelf.view.center;
-        CGPoint point = weakSelf.view.center;
+        _currentVC.view.center = self.view.center;
+        CGPoint point = self.view.center;
         point.x = point.x - (_sideContentOffset / 2);
         _sideVC.view.center = point;
     }completion:^(BOOL finished) {
@@ -148,12 +146,11 @@
 #pragma mark ---- 打开侧拉栏
 - (void)openSideVC
 {
-    __weak typeof(self) weakSelf = self;
     [UIView animateWithDuration:0.2 animations:^{
-        CGPoint point = weakSelf.view.center;
+        CGPoint point = self.view.center;
         point.x = viewStartCenterPoint.x + _sideContentOffset;
         _currentVC.view.center = point;
-        _sideVC.view.center = weakSelf.view.center;
+        _sideVC.view.center = self.view.center;
     }completion:^(BOOL finished) {
         beginPoint = _currentVC.view.center;
         beginSidePoint = _sideVC.view.center;
@@ -165,7 +162,7 @@
 {
     CGPoint beginPointInView = [touch locationInView:_currentVC.view];
     // 控制pan手势范围
-    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ((XYSccreenHeight - self.tabBarController.tabBar.frame.size.height) >= beginPointInView.y)) {
+    if ([gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && ((XYSccreenHeight - _currentVC.tabBarController.tabBar.frame.size.height) >= beginPointInView.y)) {
         if (beginPointInView.x < _currentVCPanEnableRange) {
             return [self isPushViewController];
         }else {
@@ -179,12 +176,21 @@
 - (BOOL)isPushViewController
 {
     NSArray *viewControllers = [[NSArray alloc] init];
-    viewControllers = self.currentNavController.viewControllers;
+    if ([_currentVC isKindOfClass:[UITabBarController class]]) {
+        UITabBarController *tabBarVC = (UITabBarController *)_currentVC;
+        NSArray *navVCs = tabBarVC.viewControllers;
+        UINavigationController *naVC = [navVCs objectAtIndex:tabBarVC.selectedIndex];
+        viewControllers = naVC.viewControllers;
+    }else if ([_currentVC isKindOfClass:[UINavigationController class]]) {
+        UINavigationController *navVC = (UINavigationController *)_currentVC;
+        viewControllers = navVC.viewControllers;
+    }
     if (viewControllers.count == 1) {
         return YES;
     }else {
         return NO;
     }
+    return NO;
 }
 
 #pragma mark --- 监听currentVC.center 隐藏tapView

@@ -32,6 +32,9 @@
 		E28BF4931F3D901600B666AB /* shan.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4821F3D901600B666AB /* shan.png */; };
 		E28BF4941F3D901600B666AB /* yewan.png in Resources */ = {isa = PBXBuildFile; fileRef = E28BF4831F3D901600B666AB /* yewan.png */; };
 		E2E1DB421F445CA600F28B67 /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E1DB411F445CA600F28B67 /* OtherViewController.swift */; };
+		E2E1DB441F45318300F28B67 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E1DB431F45318300F28B67 /* SecondViewController.swift */; };
+		E2E1DB461F4548A700F28B67 /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E1DB451F4548A700F28B67 /* SideViewController.swift */; };
+		E2E1DB491F45771100F28B67 /* XYSideViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E1DB481F45771100F28B67 /* XYSideViewControllerSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,9 @@
 		E28BF4821F3D901600B666AB /* shan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shan.png; sourceTree = "<group>"; };
 		E28BF4831F3D901600B666AB /* yewan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yewan.png; sourceTree = "<group>"; };
 		E2E1DB411F445CA600F28B67 /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
+		E2E1DB431F45318300F28B67 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		E2E1DB451F4548A700F28B67 /* SideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
+		E2E1DB481F45771100F28B67 /* XYSideViewControllerSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XYSideViewControllerSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +139,13 @@
 		E28BF4431F3D8FDB00B666AB /* XYSideViewControllerSwiftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E2E1DB471F4576E400F28B67 /* XYSideViewControllerSwift */,
 				E28BF4721F3D901600B666AB /* resource */,
 				E28BF4441F3D8FDB00B666AB /* AppDelegate.swift */,
 				E28BF4461F3D8FDB00B666AB /* ViewController.swift */,
 				E2E1DB411F445CA600F28B67 /* OtherViewController.swift */,
+				E2E1DB431F45318300F28B67 /* SecondViewController.swift */,
+				E2E1DB451F4548A700F28B67 /* SideViewController.swift */,
 				E28BF4481F3D8FDB00B666AB /* Main.storyboard */,
 				E28BF44B1F3D8FDB00B666AB /* Assets.xcassets */,
 				E28BF44D1F3D8FDB00B666AB /* LaunchScreen.storyboard */,
@@ -186,6 +195,15 @@
 			);
 			path = resource;
 			sourceTree = "<group>";
+		};
+		E2E1DB471F4576E400F28B67 /* XYSideViewControllerSwift */ = {
+			isa = PBXGroup;
+			children = (
+				E2E1DB481F45771100F28B67 /* XYSideViewControllerSwift.swift */,
+			);
+			name = XYSideViewControllerSwift;
+			path = XYSideViewControllerSwiftdemo/XYSideViewControllerSwift;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -338,6 +356,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E1DB461F4548A700F28B67 /* SideViewController.swift in Sources */,
+				E2E1DB441F45318300F28B67 /* SecondViewController.swift in Sources */,
+				E2E1DB491F45771100F28B67 /* XYSideViewControllerSwift.swift in Sources */,
 				E28BF4471F3D8FDB00B666AB /* ViewController.swift in Sources */,
 				E2E1DB421F445CA600F28B67 /* OtherViewController.swift in Sources */,
 				E28BF4451F3D8FDB00B666AB /* AppDelegate.swift in Sources */,

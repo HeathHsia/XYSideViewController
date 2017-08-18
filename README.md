@@ -2,7 +2,7 @@
 
 [![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com/documentation/)
-![version](http://img.shields.io/badge/version-1.0.1-00FFFF.svg?style=flat)
+![version](http://img.shields.io/badge/version-1.0.3-00FFFF.svg?style=flat)
 [![blog](http://img.shields.io/badge/jianshu-简书-FF00FF.svg?style=flat)](http://www.jianshu.com/u/eec143f2560d)
 [![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat)](http://mit-license.org)
 
@@ -11,17 +11,23 @@
 
 **Email : firehsia1204@gmail.com**
 
-**欢迎邮件 欢迎Star** 
+**欢迎Issue 欢迎邮件 欢迎Star** 
 
 ![demoGif](demoGif.gif)
 
 ## Installation
 
-1. 直接将XYSideViewController文件夹放入到工程即可使用
+1. OC版本 
+ 
+		直接将XYSideViewControllerOC文件夹放入到工程即可使用
+	
+	Swift版本将
+	
+		直接将XYSideViewControllerSwift文件夹放入到工程即可使用
 
 2. cocopods
  
- > pod 'XYSideViewController', '~> 1.0.2'
+ > pod 'XYSideViewController', '~> 1.0.3'
  
  
 ## OC版本
@@ -78,5 +84,34 @@
   
   
 ## Swift版本
+1. 初始化
+ 
+	 ```
+	 let rootVC = XYSideViewControllerSwift(sideVC, currentMainVC)
+	  
+	 window?.rootViewController = rootVC 
+	 ```
 
-### ***Loading***
+2. 属性和方法
+   - currentVCPanEnableRange
+     
+  		- pan侧拉手势范围  
+ 	  
+  		- 默认值: 50
+   - isSide 
+    
+   		- 侧拉开关
+   		
+   		- 默认值: 开启
+   - currentNavController
+
+     	- 获取主VC当前的导航控制器
+     
+   - closeSideVC() 
+    
+     	- 关闭侧拉栏
+   - openSideVC()
+
+   		- 打开侧拉栏
+
+# END

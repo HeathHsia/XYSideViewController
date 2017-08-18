@@ -12,19 +12,21 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    public static let ROOTTABLEVIEWCCELLIDENTIFIER = "ROOTTABLEVIEWCELLIDENTIFIER"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let sideVC = SideViewController()
         
-        _ = ViewController.ROOTTABLEVIEWCELLIDENTIFIER
-        // 这个没有初始化的VC的属性
-        let viewController = UINavigationController(rootViewController: ViewController())
-        window?.rootViewController = viewController
+        let currentMainVC = UITabBarController.init()
+        let navOne = UINavigationController(rootViewController: ViewController())
+        let navTwo = UINavigationController(rootViewController: SecondViewController())
+        navOne.tabBarItem.title = "风景"
+        navTwo.tabBarItem.title = "地球"
+        currentMainVC.viewControllers = [navOne, navTwo]
+        let rootVC = XYSideViewControllerSwift(sideVC, currentMainVC)
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
         
-        
-        // Override point for customization after application launch.
         return true
     }
 

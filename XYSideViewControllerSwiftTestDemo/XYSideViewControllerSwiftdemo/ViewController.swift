@@ -18,7 +18,11 @@ class ViewController: UIViewController {
         view.addSubview(rootTableView)
     }
     
-    // MARK lazyLoadView
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     lazy var rootTableView : UITableView = { [unowned self] in
         var tableView = UITableView(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
@@ -26,7 +30,7 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: ROOTTABLEVIEWCELLIDENTIFIER)
         return tableView
     }()
-    lazy var titleArray : [String] = { [unowned self] in
+    lazy var titleArray : [String] = {
         var array = ["夜晚", "山脉", "龙卷风", "农场", "富士山", "海底"]
         return array
     }()
@@ -60,10 +64,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate {
         let otherVC = OtherViewController()
         otherVC.title = titleArray[indexPath.row]
         self.navigationController?.pushViewController(otherVC, animated: true)
-        
     }
-    
-    
 }
 
 
