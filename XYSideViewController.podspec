@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "XYSideViewController"
-  s.version      = "1.0.2"
-  s.summary      = "A Side ViewController container like the QQ app
-仿QQ侧滑菜单 "
+  s.version      = "1.0.3"
+  s.summary      = "A Side ViewController(OC && Swift) container like the QQ app
+仿QQ侧滑菜单OC&&Swift "
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-			A Side ViewController container like the QQ app
-仿QQ侧滑菜单ViewController 
+			A Side ViewController(OC&&Swift) container like the QQ app
+仿QQ侧滑菜单ViewController(OC&&Swift) 
                    DESC
 
   s.homepage     = "https://github.com/FireHsia/XYSideViewController"
