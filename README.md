@@ -27,7 +27,11 @@
 
 2. cocopods
  
- > pod 'XYSideViewController', '~> 1.0.2'
+ > pod 'XYSideViewController', '~> 1.0.3'
+ 
+ > 注: 请在PodFile 后面添加 use_frameworks!
+ 
+ >  若找不到该库 请先执行 `pod repo update`  再 `pod install`
  
  
 ## OC版本
@@ -114,4 +118,4 @@
 
    		- 打开侧拉栏
 
-# END
+
