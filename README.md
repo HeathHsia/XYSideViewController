@@ -15,6 +15,15 @@
 
 ![demoGif](demoGif.gif)
 
+## 版本记录
+1.0.4 --- 修复观察者未移除, 导致重置根控制器闪退 感谢[@zhangdinghao](https://github.com/CalvinCheungCoder)
+
+1.0.3 --- 代码重构
+
+1.0.2 --- 修复初始状态侧拉菜单位置bug
+
+1.0.1 --- 初始版本
+
 ## Installation
 
 1. OC版本 
@@ -27,7 +36,7 @@
 
 2. cocopods
  
- > pod 'XYSideViewController', '~> 1.0.3'
+ > pod 'XYSideViewController', '~> 1.0.4'
  
  > 注: 请在PodFile 后面添加 use_frameworks!
  
