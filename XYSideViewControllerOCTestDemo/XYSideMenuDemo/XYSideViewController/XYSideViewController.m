@@ -51,6 +51,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)dealloc
+{
+    [_currentVC.view removeObserver:self forKeyPath:@"center"];
+}
+
 - (void)setUpViewControllers
 {
     [self addChildViewController:_sideVC];
@@ -73,6 +78,8 @@
     [_currentVC.view addSubview:tapView];
     [self.view addSubview:_currentVC.view];
 }
+
+
 
 #pragma mark -- tap 手势, 关闭侧拉栏
 - (void)tapGesure:(UITapGestureRecognizer *)tap

@@ -51,6 +51,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)dealloc
+{
+    [_currentVC.view removeObserver:self forKeyPath:@"center"];
+}
+
 - (void)setUpViewControllers
 {
     [self addChildViewController:_sideVC];

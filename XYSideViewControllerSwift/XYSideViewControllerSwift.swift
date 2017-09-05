@@ -41,6 +41,10 @@ class XYSideViewControllerSwift: UIViewController {
         setUpViewController()
     }
     
+    deinit {
+        currentVC.view.removeObserver(self, forKeyPath: "center")
+    }
+    
     // MARK : - setUpVCs
     fileprivate func setUpViewController() {
         self.addChildViewController(sideVC)
