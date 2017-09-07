@@ -2,7 +2,7 @@
 
 [![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com/documentation/)
-![version](http://img.shields.io/badge/version-1.0.2-00FFFF.svg?style=flat)
+![version](http://img.shields.io/badge/version-1.0.4-00FFFF.svg?style=flat)
 [![blog](http://img.shields.io/badge/jianshu-简书-FF00FF.svg?style=flat)](http://www.jianshu.com/u/eec143f2560d)
 [![License](http://img.shields.io/badge/license-MIT-ff69b4.svg?style=flat)](http://mit-license.org)
 
@@ -28,11 +28,11 @@
 
 1. OC版本 
  
-		直接将XYSideViewControllerOC文件夹放入到工程即可使用
+		直接将XYSideViewController文件夹下OC文件添加到工程
 	
 	Swift版本
 	
-		直接将XYSideViewControllerSwift文件夹放入到工程即可使用
+		直接将XYSideViewController文件夹下Swift文件添加到工程
 
 2. cocopods
  
