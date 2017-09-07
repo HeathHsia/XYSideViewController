@@ -1,4 +1,4 @@
-![XYSideViewController](icon.png)
+![XYSideViewController](images/icon.png)
 
 [![platform](http://img.shields.io/badge/platform-iOS-orange.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 [![Language](http://img.shields.io/badge/language-ObjC&Swift-brightgreen.svg?style=flat)](https://developer.apple.com/documentation/)
@@ -13,7 +13,7 @@
 
 **欢迎Issue 欢迎邮件 欢迎Star** 
 
-![demoGif](demoGif.gif)
+![demoGif](images/demoGif.gif)
 
 ## 版本记录
 1.0.4 --- 修复观察者未移除, 导致重置根控制器闪退 感谢[@zhangdinghao](https://github.com/CalvinCheungCoder)
