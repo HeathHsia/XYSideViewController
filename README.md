@@ -15,8 +15,6 @@
 ![demoGif](images/demoGif.gif)
 
 ## 版本记录
-1.0.4 --- 修复观察者未移除, 导致重置根控制器闪退 感谢[@zhangdinghao](https://github.com/CalvinCheungCoder)
-
 1.0.3 --- 代码重构
 
 1.0.2 --- 修复初始状态侧拉菜单位置bug
